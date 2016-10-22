@@ -29,6 +29,7 @@ import { FormattedMessage } from 'react-intl';
 import RepoListItem from 'containers/RepoListItem';
 import Button from 'components/Button';
 import H2 from 'components/H2';
+import ContactForm from 'containers/ContactForm';
 import List from 'components/List';
 import ListItem from 'components/ListItem';
 import LoadingIndicator from 'components/LoadingIndicator';
@@ -88,6 +89,7 @@ export class HomePage extends React.Component {
           ]}
         />
         <div>
+          <ContactForm />
           <section className={`${styles.textSection} ${styles.centered}`}>
             <H2>
               <FormattedMessage {...messages.startProjectHeader} />
