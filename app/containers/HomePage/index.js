@@ -36,14 +36,20 @@ import LoadingIndicator from 'components/LoadingIndicator';
 
 import styles from './styles.css';
 
+import rest from '../../rest';
+
 export class HomePage extends React.Component {
   /**
    * when initial state username is not null, submit the form to load repos
    */
   componentDidMount() {
+    const { dispatch } = this.props;
+
     if (this.props.username && this.props.username.trim().length > 0) {
       this.props.onSubmitForm();
     }
+
+    dispatch(rest.actions.actions.sync());
   }
   /**
    * Changes the route
@@ -130,6 +136,7 @@ export class HomePage extends React.Component {
 }
 
 HomePage.propTypes = {
+  dispatch: React.PropTypes.func,
   changeRoute: React.PropTypes.func,
   loading: React.PropTypes.bool,
   error: React.PropTypes.oneOfType([

@@ -11,6 +11,8 @@ import globalReducer from 'containers/App/reducer';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 import { reducer as formReducer } from 'redux-form/immutable';
 
+import rest from './rest';
+
 /*
  * routeReducer
  *
@@ -48,6 +50,7 @@ export default function createReducer(asyncReducers) {
     global: globalReducer,
     language: languageProviderReducer,
     form: formReducer,
+    ...rest.reducers,
     ...asyncReducers,
   });
 }
